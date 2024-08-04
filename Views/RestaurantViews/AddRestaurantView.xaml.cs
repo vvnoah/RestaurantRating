@@ -2,9 +2,9 @@ using RestaurantRating.ViewModels.RestaurantViewModels;
 
 namespace RestaurantRating.Views.RestaurantViews;
 
-public partial class CreateRestaurantView : ContentPage
+public partial class AddRestaurantView : ContentPage
 {
-	public CreateRestaurantView(CreateRestaurantViewModel vm)
+	public AddRestaurantView(AddRestaurantViewModel vm)
 	{
 		InitializeComponent();
 		BindingContext = vm;

@@ -13,14 +13,14 @@ namespace RestaurantRating
 
 		private void RegisterRoutes()
 		{
-			Routing.RegisterRoute("restaurant/list", typeof(ListRestaurantsView));
-			Routing.RegisterRoute("restaurant/index", typeof(IndexRestaurantView));
-			Routing.RegisterRoute("restaurant/edit", typeof(EditRestaurantView));
-			Routing.RegisterRoute("restaurant/create", typeof(CreateRestaurantView));
+			Routing.RegisterRoute(nameof(ListRestaurantsView), typeof(ListRestaurantsView));
+			Routing.RegisterRoute(nameof(IndexRestaurantView), typeof(IndexRestaurantView));
+			Routing.RegisterRoute(nameof(EditRestaurantView), typeof(EditRestaurantView));
+			Routing.RegisterRoute(nameof(AddRestaurantView), typeof(AddRestaurantView));
 
-			Routing.RegisterRoute("visit/list", typeof(ListVisitsView));
-			Routing.RegisterRoute("visit/index", typeof(IndexVisitView));
-			Routing.RegisterRoute("visit/edit", typeof(EditVisitView));
+			Routing.RegisterRoute(nameof(ListVisitsView), typeof(ListVisitsView));
+			Routing.RegisterRoute(nameof(IndexVisitView), typeof(IndexVisitView));
+			Routing.RegisterRoute(nameof(EditVisitView), typeof(EditVisitView));
 		}
 	}
 }

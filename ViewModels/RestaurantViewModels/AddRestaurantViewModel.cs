@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace RestaurantRating.ViewModels.RestaurantViewModels
 {
-	public partial class CreateRestaurantViewModel : BaseViewModel
+	public class AddRestaurantViewModel : BaseViewModel
 	{
-
 	}
 }

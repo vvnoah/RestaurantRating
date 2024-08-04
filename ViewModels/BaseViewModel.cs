@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using RestaurantRating.Views.RestaurantViews;
 
 namespace RestaurantRating.ViewModels
 {
@@ -13,14 +14,13 @@ namespace RestaurantRating.ViewModels
         [RelayCommand]
         async Task NavigateBack()
         {
-            Console.WriteLine(Shell.Current.Navigation.NavigationStack);
             await Shell.Current.Navigation.PopAsync();
         }
 
 		[RelayCommand]
         async Task NavigateCreateRestaurant()
         {
-            await Shell.Current.GoToAsync("restaurant/create");
+            await Shell.Current.GoToAsync(nameof(AddRestaurantView));
         }
     }
 }

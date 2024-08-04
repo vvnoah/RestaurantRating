@@ -16,6 +16,6 @@
                 
             </VerticalStackLayout>
         </ScrollView>
-        <Button Text="Create New Restaurant" Command="{Binding NavigateCreateRestaurantCommand}"/>
+        <Button Text="Add Restaurant" Command="{Binding NavigateCreateRestaurantCommand}"/>
     </VerticalStackLayout>
 </ContentPage>

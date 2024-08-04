@@ -20,8 +20,8 @@ namespace RestaurantRating
 			builder.Services.AddTransient<ListRestaurantsViewModel>();
 			builder.Services.AddTransient<ListRestaurantsView>();
 
-			builder.Services.AddTransient<CreateRestaurantViewModel>();
-			builder.Services.AddTransient<CreateRestaurantView>();
+			builder.Services.AddTransient<AddRestaurantViewModel>();
+			builder.Services.AddTransient<AddRestaurantView>();
 
 
 #if DEBUG

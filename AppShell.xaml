@@ -12,6 +12,6 @@
     
     Title="RestaurantRating">
     
-    <ShellContent Route="restaurant/list" ContentTemplate="{DataTemplate restaurantViews:ListRestaurantsView}" />
+    <ShellContent Route="ListRestaurantsView" ContentTemplate="{DataTemplate restaurantViews:ListRestaurantsView}" />
     
 </Shell>

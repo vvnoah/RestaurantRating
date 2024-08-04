@@ -64,7 +64,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Views\RestaurantViews\CreateRestaurantView.xaml">
+	  <MauiXaml Update="Views\RestaurantViews\AddRestaurantView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\RestaurantViews\EditRestaurantView.xaml">
@@ -89,12 +89,6 @@
 
 	<ItemGroup>
 	  <Folder Include="Models\" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Compile Update="Views\RestaurantViews\CreateRestaurantView.xaml.cs">
-	    <DependentUpon>CreateRestaurantView.xaml</DependentUpon>
-	  </Compile>
 	</ItemGroup>
 
 	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionRestaurantRatingHideInfoBar="True" /></VisualStudio></ProjectExtensions>
