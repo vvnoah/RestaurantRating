@@ -18,7 +18,7 @@ namespace RestaurantRating.ViewModels
         }
 
 		[RelayCommand]
-        async Task NavigateCreateRestaurant()
+        async Task NavigateAddRestaurant()
         {
             await Shell.Current.GoToAsync(nameof(AddRestaurantView));
         }
