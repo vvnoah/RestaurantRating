@@ -17,6 +17,8 @@ namespace RestaurantRating
 					fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 				});
 
+			builder.Services.AddSingleton<LocalDBService>();
+
 			builder.Services.AddTransient<ListRestaurantsViewModel>();
 			builder.Services.AddTransient<ListRestaurantsView>();
 

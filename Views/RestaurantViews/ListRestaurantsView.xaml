@@ -11,11 +11,9 @@
     </ContentPage.BindingContext>
     
     <VerticalStackLayout Margin="10" Spacing="10">
-        <ScrollView>
-            <VerticalStackLayout Spacing="10">
-                
-            </VerticalStackLayout>
-        </ScrollView>
+        <ListView>
+            
+        </ListView>
         <Button Text="Add Restaurant" Command="{Binding NavigateCreateRestaurantCommand}"/>
     </VerticalStackLayout>
 </ContentPage>
