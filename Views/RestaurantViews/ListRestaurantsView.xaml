@@ -1,22 +1,31 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:vm="clr-namespace:RestaurantRating.ViewModels.RestaurantViewModels"
+             xmlns:models="clr-namespace:RestaurantRating.Models"
+             x:DataType="vm:ListRestaurantsViewModel"
              x:Class="RestaurantRating.Views.RestaurantViews.ListRestaurantsView"
              Title="List Restaurants View"
              >
-    
-    <ContentPage.BindingContext>
-        <vm:ListRestaurantsViewModel />
-    </ContentPage.BindingContext>
-    
+
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior EventName="Appearing" Command="{Binding GetRestaurantsCommand}" />
+    </ContentPage.Behaviors>
+
     <Grid Margin="10" ColumnSpacing="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <ListView Grid.Row="0"></ListView>
+        <ListView Grid.Row="0" ItemsSource="{Binding Restaurants}" HasUnevenRows="True" SelectionMode="None">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="models:Restaurant">
+                    <TextCell Text="{Binding RestaurantName}" Detail="{Binding Id}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
         <Button VerticalOptions="End" Grid.Row="1" Text="Add Restaurant" Command="{Binding NavigateAddRestaurantCommand}"/>
     </Grid>
