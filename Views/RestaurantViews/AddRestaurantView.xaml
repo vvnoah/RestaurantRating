@@ -3,20 +3,28 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:RestaurantRating.ViewModels.RestaurantViewModels"
              x:Class="RestaurantRating.Views.RestaurantViews.AddRestaurantView"
-             Title="Add Restaurant View">
+             Title="Add Restaurant">
 
     <ContentPage.BindingContext>
         <vm:AddRestaurantViewModel/>
     </ContentPage.BindingContext>
 
-    <VerticalStackLayout>
-        <Label 
-            Text="Create Restaurant View"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <HorizontalStackLayout>
-            <Button Text="Back" Command="{Binding NavigateBackCommand}"/>
-            <Button Text="Save"/>
-        </HorizontalStackLayout>
-    </VerticalStackLayout>
+    <Grid Margin="10"  RowSpacing="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackLayout Grid.Row="0"></StackLayout>
+
+        <Grid VerticalOptions="End" Grid.Row="1" ColumnSpacing="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Button Grid.Column="0" Text="Cancel" Command="{Binding NavigateBackCommand}"/>
+            <Button Grid.Column="1" Text="Save"/>
+        </Grid>
+    </Grid>
 </ContentPage>

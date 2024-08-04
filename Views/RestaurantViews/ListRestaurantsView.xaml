@@ -10,10 +10,14 @@
         <vm:ListRestaurantsViewModel />
     </ContentPage.BindingContext>
     
-    <VerticalStackLayout Margin="10" Spacing="10">
-        <ListView>
-            
-        </ListView>
-        <Button Text="Add Restaurant" Command="{Binding NavigateAddRestaurantCommand}"/>
-    </VerticalStackLayout>
+    <Grid Margin="10" ColumnSpacing="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <ListView Grid.Row="0"></ListView>
+
+        <Button VerticalOptions="End" Grid.Row="1" Text="Add Restaurant" Command="{Binding NavigateAddRestaurantCommand}"/>
+    </Grid>
 </ContentPage>
