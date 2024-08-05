@@ -5,8 +5,13 @@
              x:DataType="vm:DetailsRestaurantViewModel"
              x:Class="RestaurantRating.Views.RestaurantViews.DetailsRestaurantView"
              Title="Restaurant Details">
-    <VerticalStackLayout>
-        <TableView>
+    <Grid Margin="10"  RowSpacing="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TableView Grid.Row="1">
             <TableRoot>
                 <TableSection>
                     <TextCell Text="ID" Detail="{Binding Restaurant.Id}"/>
@@ -14,5 +19,15 @@
                 </TableSection>
             </TableRoot>
         </TableView>
-    </VerticalStackLayout>
+
+        <Grid VerticalOptions="End" Grid.Row="1" ColumnSpacing="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Text="Back" Command="NavigateBack"/>
+            <Button Grid.Column="1" Text="Edit"/>
+        </Grid>
+    </Grid>
 </ContentPage>
