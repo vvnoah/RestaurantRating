@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:RestaurantRating.ViewModels.RestaurantViewModels"
+             x:DataType="vm:DetailsRestaurantViewModel"
              x:Class="RestaurantRating.Views.RestaurantViews.DetailsRestaurantView"
-             Title="DetailsRestaurantView">
+             Title="Restaurant Details">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <TableView>
+            <TableRoot>
+                <TableSection>
+                    <TextCell Text="ID" Detail="{Binding Restaurant.Id}"/>
+                    <TextCell Text="Name" Detail="{Binding Restaurant.RestaurantName}"/>
+                </TableSection>
+            </TableRoot>
+        </TableView>
     </VerticalStackLayout>
 </ContentPage>

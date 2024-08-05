@@ -6,7 +6,7 @@
              xmlns:models="clr-namespace:RestaurantRating.Models"
              x:DataType="vm:ListRestaurantsViewModel"
              x:Class="RestaurantRating.Views.RestaurantViews.ListRestaurantsView"
-             Title="List Restaurants View"
+             Title="Restaurant List"
              >
 
     <ContentPage.Behaviors>
