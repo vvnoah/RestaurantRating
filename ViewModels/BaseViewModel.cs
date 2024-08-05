@@ -12,13 +12,13 @@ namespace RestaurantRating.ViewModels
     public partial class BaseViewModel : ObservableObject
     {
         [RelayCommand]
-        async Task NavigateBack()
+        public async Task NavigateBack()
         {
             await Shell.Current.Navigation.PopAsync();
         }
 
 		[RelayCommand]
-        async Task NavigateAddRestaurant()
+        public async Task NavigateAddRestaurant()
         {
             await Shell.Current.GoToAsync(nameof(AddRestaurantView));
         }
