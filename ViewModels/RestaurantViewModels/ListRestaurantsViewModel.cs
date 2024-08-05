@@ -30,6 +30,5 @@ namespace RestaurantRating.ViewModels.RestaurantViewModels
 				Restaurants.Add(restaurant);
 			}
 		}
-
     }
 }

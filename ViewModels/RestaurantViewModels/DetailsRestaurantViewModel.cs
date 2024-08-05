@@ -8,9 +8,12 @@ using System.Threading.Tasks;
 
 namespace RestaurantRating.ViewModels.RestaurantViewModels
 {
+	[QueryProperty(nameof(Restaurant), "Restaurant")]
 	public partial class DetailsRestaurantViewModel : BaseViewModel
 	{
 		[ObservableProperty]
-		Restaurant _restaurant = new() { Id = 69, RestaurantName = "Mc Downalds"};
+		Restaurant? _restaurant;
+
+
 	}
 }

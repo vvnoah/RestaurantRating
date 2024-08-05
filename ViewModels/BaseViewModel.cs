@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using RestaurantRating.Models;
 using RestaurantRating.Views.RestaurantViews;
 
 namespace RestaurantRating.ViewModels
@@ -24,9 +25,13 @@ namespace RestaurantRating.ViewModels
         }
 
         [RelayCommand]
-        public async Task NavigateDetailsRestaurant()
+        public async Task NavigateDetailsRestaurant(Restaurant restaurant)
         {
-            await Shell.Current.GoToAsync(nameof(DetailsRestaurantView));
+            if (restaurant == null) return;
+
+            await Shell.Current.GoToAsync(nameof(DetailsRestaurantView), true, new Dictionary<string, object>{
+                { "Restaurant", restaurant}
+            });
         }
     }
 }

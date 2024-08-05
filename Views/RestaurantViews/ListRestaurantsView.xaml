@@ -19,17 +19,21 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <ListView Grid.Row="0" ItemsSource="{Binding Restaurants}" HasUnevenRows="True">
-            <ListView.Behaviors>
-                <toolkit:EventToCommandBehavior EventName="ItemTapped" Command="{Binding NavigateDetailsRestaurantCommand}"></toolkit:EventToCommandBehavior>
-            </ListView.Behaviors>
-            
-            <ListView.ItemTemplate>                
+        <CollectionView Grid.Row="0" ItemsSource="{Binding Restaurants}" SelectionMode="Single">
+            <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="models:Restaurant">
-                    <TextCell Text="{Binding RestaurantName}" Detail="{Binding Id}"/>
+                    <StackLayout Padding="10">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding BindingContext.NavigateDetailsRestaurantCommand, Source={RelativeSource AncestorType={x:Type ContentPage}}}"
+                                CommandParameter="{Binding .}" />
+                        </StackLayout.GestureRecognizers>
+                        <Label Text="{Binding RestaurantName}" FontSize="Medium"/>
+                        <Label Text="{Binding Id}" FontSize="Small" TextColor="Gray"/>
+                    </StackLayout>
                 </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
 
         <Button VerticalOptions="End" Grid.Row="1" Text="Add Restaurant" Command="{Binding NavigateAddRestaurantCommand}"/>
     </Grid>
