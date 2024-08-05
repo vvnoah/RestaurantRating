@@ -19,8 +19,12 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <ListView Grid.Row="0" ItemsSource="{Binding Restaurants}" HasUnevenRows="True" SelectionMode="None">
-            <ListView.ItemTemplate>
+        <ListView Grid.Row="0" ItemsSource="{Binding Restaurants}" HasUnevenRows="True">
+            <ListView.Behaviors>
+                <toolkit:EventToCommandBehavior EventName="ItemTapped" Command="{Binding NavigateDetailsRestaurantCommand}"></toolkit:EventToCommandBehavior>
+            </ListView.Behaviors>
+            
+            <ListView.ItemTemplate>                
                 <DataTemplate x:DataType="models:Restaurant">
                     <TextCell Text="{Binding RestaurantName}" Detail="{Binding Id}"/>
                 </DataTemplate>

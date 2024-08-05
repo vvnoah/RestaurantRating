@@ -21,13 +21,20 @@ namespace RestaurantRating
             });
 
             builder.Services.AddSingleton<LocalDBService>();
+
             builder.Services.AddTransient<ListRestaurantsViewModel>();
             builder.Services.AddTransient<ListRestaurantsView>();
+
             builder.Services.AddTransient<AddRestaurantViewModel>();
             builder.Services.AddTransient<AddRestaurantView>();
+
+            builder.Services.AddTransient<DetailsRestaurantViewModel>();
+            builder.Services.AddTransient<DetailsRestaurantView>();
+
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
+
             return builder.Build();
         }
     }

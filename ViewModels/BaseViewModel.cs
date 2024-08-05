@@ -22,5 +22,11 @@ namespace RestaurantRating.ViewModels
         {
             await Shell.Current.GoToAsync(nameof(AddRestaurantView));
         }
+
+        [RelayCommand]
+        public async Task NavigateDetailsRestaurant()
+        {
+            await Shell.Current.GoToAsync(nameof(DetailsRestaurantView));
+        }
     }
 }
