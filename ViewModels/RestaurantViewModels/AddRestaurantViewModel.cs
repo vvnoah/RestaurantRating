@@ -22,7 +22,7 @@ namespace RestaurantRating.ViewModels.RestaurantViewModels
         }
 
         [RelayCommand]
-		public async Task AddRestaurantAsync()
+		public async Task AddRestaurantButton()
 		{
 			await _db.AddRestaurant(Restaurant);
 			await NavigateBack();

@@ -27,7 +27,7 @@
             </Grid.ColumnDefinitions>
 
             <Button Grid.Column="0" Text="Cancel" Command="{Binding NavigateBackCommand}"/>
-            <Button Grid.Column="1" Text="Save"/>
+            <Button Grid.Column="1" Text="Save" Command="{Binding SaveRestaurantButtonCommand}"/>
         </Grid>
     </Grid>
 </ContentPage>

@@ -11,9 +11,14 @@ namespace RestaurantRating.ViewModels.RestaurantViewModels
 	[QueryProperty(nameof(Restaurant), "Restaurant")]
 	public partial class DetailsRestaurantViewModel : BaseViewModel
 	{
+		LocalDBService _db;
+
 		[ObservableProperty]
 		Restaurant? _restaurant;
 
-
+		public DetailsRestaurantViewModel(LocalDBService db)
+		{
+			_db = db;
+		}
 	}
 }

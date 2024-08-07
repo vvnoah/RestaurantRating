@@ -23,7 +23,7 @@
             </Grid.ColumnDefinitions>
             
             <Button Grid.Column="0" Text="Cancel" Command="{Binding NavigateBackCommand}"/>
-            <Button Grid.Column="1" Text="Save" Command="{Binding AddRestaurantCommand}"/>
+            <Button Grid.Column="1" Text="Save" Command="{Binding AddRestaurantButtonCommand}"/>
         </Grid>
     </Grid>
 </ContentPage>
