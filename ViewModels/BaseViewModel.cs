@@ -13,15 +13,15 @@ namespace RestaurantRating.ViewModels
     public partial class BaseViewModel : ObservableObject
     {
         [RelayCommand]
-        public async Task NavigateBack()
+        public static async Task NavigateBack()
         {
-            await Shell.Current.Navigation.PopAsync();
+            await Shell.Current.GoToAsync("..");
         }
 
 		[RelayCommand]
         public async Task NavigateAddRestaurant()
         {
-            await Shell.Current.GoToAsync(nameof(AddRestaurantView));
+            await Shell.Current.GoToAsync("restaurant/list/add");
         }
 
         [RelayCommand]
@@ -29,9 +29,21 @@ namespace RestaurantRating.ViewModels
         {
             if (restaurant == null) return;
 
-            await Shell.Current.GoToAsync(nameof(DetailsRestaurantView), true, new Dictionary<string, object>{
-                { "Restaurant", restaurant}
+            await Shell.Current.GoToAsync("restaurant/list/details", true, new Dictionary<string, object>{
+
+				{ "Restaurant", restaurant}
             });
         }
+
+        [RelayCommand]
+        public async Task NavigateEditRestaurant(Restaurant restaurant)
+        {
+            if (restaurant == null) return;
+
+
+			await Shell.Current.GoToAsync("restaurant/list/details/edit", true, new Dictionary<string, object>{
+				{ "Restaurant", restaurant}
+			});
+		}
     }
 }

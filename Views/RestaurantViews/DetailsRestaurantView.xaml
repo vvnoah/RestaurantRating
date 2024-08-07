@@ -26,8 +26,8 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="0" Text="Back" Command="NavigateBack"/>
-            <Button Grid.Column="1" Text="Edit"/>
+            <Button Grid.Column="0" Text="Back" Command="{Binding NavigateBackCommand}"/>
+            <Button Grid.Column="1" Text="Edit" Command="{Binding NavigateEditRestaurantCommand}" CommandParameter="{Binding Restaurant}"/>
         </Grid>
     </Grid>
 </ContentPage>
