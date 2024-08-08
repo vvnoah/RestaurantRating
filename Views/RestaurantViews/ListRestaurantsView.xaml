@@ -27,7 +27,7 @@
                             <StackLayout.GestureRecognizers>
                                 <TapGestureRecognizer
                                     Command="{Binding BindingContext.NavigateDetailsRestaurantCommand, Source={RelativeSource AncestorType={x:Type ContentPage}}}"
-                                    CommandParameter="{Binding .}" />
+                                    CommandParameter="{Binding Id}" />
                             </StackLayout.GestureRecognizers>
 
                             <Label Text="{Binding RestaurantName}" FontSize="Medium"/>

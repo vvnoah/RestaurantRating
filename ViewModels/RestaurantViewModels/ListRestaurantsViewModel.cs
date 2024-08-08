@@ -21,7 +21,7 @@ namespace RestaurantRating.ViewModels.RestaurantViewModels
         }
 
         [RelayCommand]
-        public async Task GetRestaurantsAsync()
+        public async Task GetRestaurants()
         {
 			var restaurants = await _db.GetAllRestaurants();
 			Restaurants.Clear();

@@ -15,33 +15,31 @@ namespace RestaurantRating.ViewModels
         [RelayCommand]
         public static async Task NavigateBack()
         {
-            await Shell.Current.GoToAsync("..");
+            //await Shell.Current.GoToAsync("..");
+            await Shell.Current.Navigation.PopAsync();
         }
 
 		[RelayCommand]
-        public async Task NavigateAddRestaurant()
+        public static async Task NavigateAddRestaurant()
         {
-            await Shell.Current.GoToAsync("restaurant/list/add");
+            await Shell.Current.GoToAsync("restaurant/add");
         }
 
         [RelayCommand]
-        public async Task NavigateDetailsRestaurant(Restaurant restaurant)
+        public static async Task NavigateDetailsRestaurant(int id)
         {
-            if (restaurant == null) return;
+            await Shell.Current.GoToAsync("restaurant/details", true, new Dictionary<string, object>{
 
-            await Shell.Current.GoToAsync("restaurant/list/details", true, new Dictionary<string, object>{
-
-				{ "Restaurant", restaurant}
+				{ "Id", id}
             });
         }
 
         [RelayCommand]
-        public async Task NavigateEditRestaurant(Restaurant restaurant)
+        public static async Task NavigateEditRestaurant(Restaurant restaurant)
         {
             if (restaurant == null) return;
 
-
-			await Shell.Current.GoToAsync("restaurant/list/details/edit", true, new Dictionary<string, object>{
+			await Shell.Current.GoToAsync("restaurant/edit", true, new Dictionary<string, object>{
 				{ "Restaurant", restaurant}
 			});
 		}
