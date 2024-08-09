@@ -2,6 +2,8 @@
 using RestaurantRating.ViewModels.RestaurantViewModels;
 using RestaurantRating.Views.RestaurantViews;
 using CommunityToolkit.Maui;
+using RestaurantRating.Views.VisitViews;
+using RestaurantRating.ViewModels.VisitViewModels;
 
 namespace RestaurantRating
 {
@@ -33,6 +35,9 @@ namespace RestaurantRating
 
             builder.Services.AddTransient<EditRestaurantViewModel>();
             builder.Services.AddTransient<EditRestaurantView>();
+
+            builder.Services.AddTransient<AddVisitViewModel>();
+            builder.Services.AddTransient<AddVisitView>();
 
 #if DEBUG
             builder.Logging.AddDebug();

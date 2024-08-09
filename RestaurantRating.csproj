@@ -79,10 +79,9 @@
 	  <MauiXaml Update="Views\RestaurantViews\ListRestaurantsView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Views\VisitViews\" />
+	  <MauiXaml Update="Views\VisitViews\AddVisitView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionRestaurantRatingHideInfoBar="True" /></VisualStudio></ProjectExtensions>

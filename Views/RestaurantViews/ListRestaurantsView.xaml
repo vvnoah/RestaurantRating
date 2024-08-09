@@ -19,10 +19,10 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <CollectionView Grid.Row="0" ItemsSource="{Binding Restaurants}" SelectionMode="Single">
-            <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="models:Restaurant">
-                    <Border>
+        <ListView Grid.Row="0" ItemsSource="{Binding Restaurants}" HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate >
+                    <ViewCell x:DataType="models:Restaurant">
                         <StackLayout Padding="10">
                             <StackLayout.GestureRecognizers>
                                 <TapGestureRecognizer
@@ -30,13 +30,14 @@
                                     CommandParameter="{Binding Id}" />
                             </StackLayout.GestureRecognizers>
 
-                            <Label Text="{Binding RestaurantName}" FontSize="Medium"/>
-                            <Label Text="{Binding Id}" FontSize="Small" TextColor="Gray"/>                            
+                            <Label Text="{Binding Id}" FontSize="Small"/>
+                            <Label Text="{Binding RestaurantName}" FontSize="Medium" TextColor="Gray"/>
+                            <Label Text="{Binding RestaurantAddress}" FontSize="Medium" TextColor="Gray"/>
                         </StackLayout>
-                    </Border>
+                    </ViewCell>
                 </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+            </ListView.ItemTemplate>
+        </ListView>
 
         <Button VerticalOptions="End" Grid.Row="1" Text="Add Restaurant" Command="{Binding NavigateAddRestaurantCommand}"/>
     </Grid>

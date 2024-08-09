@@ -11,5 +11,8 @@ namespace RestaurantRating.Models
 
 		[Column("restaurant_name")]
 		public string RestaurantName { get; set; } = "";
+
+		[Column("restaurant_address")]
+		public string RestaurantAddress { get; set; } = "";
 	}
 }

@@ -26,6 +26,7 @@ namespace RestaurantRating.ViewModels.RestaurantViewModels
 		{
 			await _db.AddRestaurant(Restaurant);
 			await NavigateBack();
+			await NavigateDetailsRestaurant(Restaurant.Id);
 		}
 	}
 }

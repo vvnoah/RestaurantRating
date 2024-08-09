@@ -2,13 +2,14 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"             
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:models="clr-namespace:RestaurantRating.Models"
              xmlns:vm="clr-namespace:RestaurantRating.ViewModels.RestaurantViewModels"
              x:DataType="vm:DetailsRestaurantViewModel"
              x:Class="RestaurantRating.Views.RestaurantViews.DetailsRestaurantView"
              Title="Restaurant Details">
 
     <ContentPage.Behaviors>
-        <toolkit:EventToCommandBehavior EventName="Appearing" Command="{Binding GetRestaurantByIdCommand}" CommandParameter="{Binding Id}" />
+        <toolkit:EventToCommandBehavior EventName="Appearing" Command="{Binding LoadCommand}" />
     </ContentPage.Behaviors>
 
     <Grid Margin="10"  RowSpacing="10">
@@ -17,23 +18,51 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <TableView Grid.Row="1">
-            <TableRoot>
-                <TableSection>
-                    <TextCell Text="ID" Detail="{Binding Restaurant.Id}"/>
-                    <TextCell Text="Name" Detail="{Binding Restaurant.RestaurantName}"/>
-                </TableSection>
-            </TableRoot>
-        </TableView>
+        <StackLayout>
+            <TableView Intent="Data" Grid.Row="0">
+                <TableRoot>
+                    <TableSection>
+                        <TextCell Text="ID" Detail="{Binding Restaurant.Id}"/>
+                        <TextCell Text="Name" Detail="{Binding Restaurant.RestaurantName}"/>
+                        <TextCell Text="Address" Detail="{Binding Restaurant.RestaurantAddress}"/>
+                    </TableSection>
+                </TableRoot>
+            </TableView>
 
-        <Grid VerticalOptions="End" Grid.Row="1" ColumnSpacing="10">
+            <ListView ItemsSource="{Binding Visits}" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate >
+                        <ViewCell x:DataType="models:Visit">
+                            <StackLayout Padding="10">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        Command="{Binding BindingContext ., Source={RelativeSource AncestorType={x:Type ContentPage}}}"
+                                        CommandParameter="{Binding Id}" />
+                                </StackLayout.GestureRecognizers>
+
+                                <Label Text="{Binding Date}" FontSize="Small" TextColor="Gray"/>
+                                <Label Text="{Binding Description}" FontSize="Medium" TextColor="Gray"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+
+        <Grid VerticalOptions="End" Grid.Row="1" ColumnSpacing="10" RowSpacing="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="0" Text="Back" Command="{Binding NavigateBackCommand}"/>
-            <Button Grid.Column="1" Text="Edit" Command="{Binding NavigateEditRestaurantCommand}" CommandParameter="{Binding Restaurant}"/>
+            <Button Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="Add a Visit" Command="{Binding AddVisitButtonCommand}"/>
+
+            <Button Grid.Row="1" Grid.Column="0" Text="Back" Command="{Binding NavigateBackCommand}"/>
+            <Button Grid.Row="1" Grid.Column="1" Text="Edit" Command="{Binding NavigateEditRestaurantCommand}" CommandParameter="{Binding Restaurant}"/>
         </Grid>
     </Grid>
 </ContentPage>

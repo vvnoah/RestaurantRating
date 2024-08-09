@@ -29,5 +29,14 @@ namespace RestaurantRating.ViewModels.RestaurantViewModels
             await _db.UpdateRestaurant(Restaurant);
             await NavigateBack();
         }
+
+        [RelayCommand]
+        public async Task DeleteRestaurantButton()
+        {
+			if (Restaurant == null) return;
+			await _db.DeleteRestaurant(Restaurant);
+            await NavigateBack();
+            await NavigateBack();
+        }
     }
 }
