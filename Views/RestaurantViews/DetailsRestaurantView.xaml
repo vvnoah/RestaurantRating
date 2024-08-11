@@ -18,8 +18,8 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <StackLayout>
-            <TableView Intent="Data" Grid.Row="0">
+        <StackLayout Margin="10">
+            <TableView Intent="Data">
                 <TableRoot>
                     <TableSection>
                         <TextCell Text="ID" Detail="{Binding Restaurant.Id}"/>
@@ -31,14 +31,14 @@
 
             <ListView ItemsSource="{Binding Visits}" HasUnevenRows="True">
                 <ListView.ItemTemplate>
-                    <DataTemplate >
+                    <DataTemplate>
                         <ViewCell x:DataType="models:Visit">
                             <StackLayout Padding="10">
-                                <StackLayout.GestureRecognizers>
-                                    <TapGestureRecognizer
-                                        Command="{Binding BindingContext ., Source={RelativeSource AncestorType={x:Type ContentPage}}}"
-                                        CommandParameter="{Binding Id}" />
-                                </StackLayout.GestureRecognizers>
+                                <!--<StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            Command="{Binding BindingContext ., Source={RelativeSource AncestorType={x:Type ContentPage}}}"
+                                            CommandParameter="{Binding Id}" />
+                                    </StackLayout.GestureRecognizers>-->
 
                                 <Label Text="{Binding Date}" FontSize="Small" TextColor="Gray"/>
                                 <Label Text="{Binding Description}" FontSize="Medium" TextColor="Gray"/>
