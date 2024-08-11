@@ -50,9 +50,9 @@ namespace RestaurantRating.ViewModels
 		}
 
         [RelayCommand]
-        public static async Task NavigateAddVisit(int restaurantId)
+        public static async Task NavigateAddConsumption(int restaurantId)
         {
-            await Shell.Current.GoToAsync("restaurant/visit/add", true, new Dictionary<string, object>
+            await Shell.Current.GoToAsync("restaurant/consumption/add", true, new Dictionary<string, object>
             {
                 { "RestaurantId", restaurantId }
             });

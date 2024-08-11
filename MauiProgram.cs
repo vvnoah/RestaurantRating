@@ -1,9 +1,11 @@
 ﻿using Microsoft.Extensions.Logging;
-using RestaurantRating.ViewModels.RestaurantViewModels;
-using RestaurantRating.Views.RestaurantViews;
 using CommunityToolkit.Maui;
-using RestaurantRating.Views.VisitViews;
-using RestaurantRating.ViewModels.VisitViewModels;
+
+using RestaurantRating.Views.RestaurantViews;
+using RestaurantRating.Views.ConsumptionViews;
+
+using RestaurantRating.ViewModels.RestaurantViewModels;
+using RestaurantRating.ViewModels.ConsumptionViewModels;
 
 namespace RestaurantRating
 {
@@ -36,8 +38,8 @@ namespace RestaurantRating
             builder.Services.AddTransient<EditRestaurantViewModel>();
             builder.Services.AddTransient<EditRestaurantView>();
 
-            builder.Services.AddTransient<AddVisitViewModel>();
-            builder.Services.AddTransient<AddVisitView>();
+            builder.Services.AddTransient<AddConsumptionViewModel>();
+            builder.Services.AddTransient<AddConsumptionView>();
 
 #if DEBUG
             builder.Logging.AddDebug();

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:vm="clr-namespace:RestaurantRating.ViewModels.VisitViewModels"
-             x:DataType="vm:AddVisitViewModel"
-             x:Class="RestaurantRating.Views.VisitViews.AddVisitView"
-             Title="Add Visit">
+             xmlns:viewmodels="clr-namespace:RestaurantRating.ViewModels.ConsumptionViewModels"
+             x:DataType="viewmodels:AddConsumptionViewModel"
+             x:Class="RestaurantRating.Views.ConsumptionViews.AddConsumptionView"
+             Title="Add a Consumption">
     <Grid Margin="10"  RowSpacing="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -15,7 +15,7 @@
             <TableRoot>
                 <TableSection>
                     <TextCell Text="ID" Detail="{Binding RestaurantId}"/>
-                    <EntryCell Text="{Binding Visit.Description}" Placeholder="Description"/>
+                    <EntryCell Text="{Binding Consumption.Description}" Placeholder="Description"/>
                 </TableSection>
             </TableRoot>
         </TableView>
@@ -27,7 +27,7 @@
             </Grid.ColumnDefinitions>
 
             <Button Grid.Column="0" Text="Cancel" Command="{Binding NavigateBackCommand}"/>
-            <Button Grid.Column="1" Text="Save" Command="{Binding SaveVisitButtonCommand}"/>
+            <Button Grid.Column="1" Text="Save" Command="{Binding SaveConsumptionButtonCommand}"/>
         </Grid>
     </Grid>
 </ContentPage>

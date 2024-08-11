@@ -18,7 +18,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <StackLayout Margin="10">
+        <StackLayout>
             <TableView Intent="Data">
                 <TableRoot>
                     <TableSection>
@@ -29,10 +29,10 @@
                 </TableRoot>
             </TableView>
 
-            <ListView ItemsSource="{Binding Visits}" HasUnevenRows="True">
+            <ListView ItemsSource="{Binding Consumptions}" HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell x:DataType="models:Visit">
+                        <ViewCell x:DataType="models:Consumption">
                             <StackLayout Padding="10">
                                 <!--<StackLayout.GestureRecognizers>
                                         <TapGestureRecognizer
@@ -59,7 +59,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="Add a Visit" Command="{Binding AddVisitButtonCommand}"/>
+            <Button Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="Add a Consumption" Command="{Binding AddConsumptionButtonCommand}"/>
 
             <Button Grid.Row="1" Grid.Column="0" Text="Back" Command="{Binding NavigateBackCommand}"/>
             <Button Grid.Row="1" Grid.Column="1" Text="Edit" Command="{Binding NavigateEditRestaurantCommand}" CommandParameter="{Binding Restaurant}"/>

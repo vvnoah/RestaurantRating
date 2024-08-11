@@ -12,7 +12,7 @@ namespace RestaurantRating
 		{
 			_connection = new SQLiteAsyncConnection(Path.Combine(FileSystem.AppDataDirectory, DB_NAME));
 			_connection.CreateTableAsync<Restaurant>();
-			_connection.CreateTableAsync<Visit>();
+			_connection.CreateTableAsync<Consumption>();
 		}
 
 		public async Task<List<Restaurant>> GetAllRestaurants()
@@ -40,29 +40,29 @@ namespace RestaurantRating
 			await _connection.DeleteAsync(restaurant);
 		}
 
-		public async Task<List<Visit>> GetAllVisitsForRestaurant(int id)
+		public async Task<List<Consumption>> GetAllConsumptionsForRestaurant(int id)
 		{
-			return await _connection.Table<Visit>().Where( x => x.RestaurantId == id).ToListAsync();
+			return await _connection.Table<Consumption>().Where( x => x.RestaurantId == id).ToListAsync();
 		}
 
-		public async Task<Visit> GetVisitById(int id)
+		public async Task<Consumption> GetConsumptionById(int id)
 		{
-			return await _connection.Table<Visit>().Where( x => x.Id == id).FirstOrDefaultAsync();
+			return await _connection.Table<Consumption>().Where( x => x.Id == id).FirstOrDefaultAsync();
 		}
 
-		public async Task AddVisit(Visit visit)
+		public async Task AddConsumption(Consumption consumption)
 		{
-			await _connection.InsertAsync(visit);
+			await _connection.InsertAsync(consumption);
 		}
 
-		public async Task UpdateVisit(Visit visit)
+		public async Task UpdateConsumption(Consumption consumption)
 		{
-			await _connection.UpdateAsync(visit);
+			await _connection.UpdateAsync(consumption);
 		}
 
-		public async Task DeleteVisit(Visit visit)
+		public async Task DeleteConsumption(Consumption consumption)
 		{
-			await _connection.DeleteAsync(visit);
+			await _connection.DeleteAsync(consumption);
 		}
 	}
 }

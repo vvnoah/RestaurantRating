@@ -7,30 +7,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RestaurantRating.ViewModels.VisitViewModels
+namespace RestaurantRating.ViewModels.ConsumptionViewModels
 {
 	[QueryProperty(nameof(RestaurantId), "RestaurantId")]
-	public partial class AddVisitViewModel : BaseViewModel
-	{
+	public partial class AddConsumptionViewModel : BaseViewModel
+    {
 		LocalDBService _db;
 
 		[ObservableProperty]
 		int _restaurantId;
 
 		[ObservableProperty]
-		public Visit _visit = new();
+		public Consumption _consumption = new();
 
-		public AddVisitViewModel(LocalDBService db)
+		public AddConsumptionViewModel(LocalDBService db)
 		{
 			_db = db;
 		}
 
 		[RelayCommand]
-		public async Task SaveVisitButton()
+		public async Task SaveConsumptionButton()
 		{
-			Visit.RestaurantId = RestaurantId;
-			Visit.Date = DateTime.Now;
-			await _db.AddVisit(Visit);
+			Consumption.RestaurantId = RestaurantId;
+			Consumption.Date = DateTime.Now;
+			await _db.AddConsumption(Consumption);
 			await NavigateBack();
 		}
 	}

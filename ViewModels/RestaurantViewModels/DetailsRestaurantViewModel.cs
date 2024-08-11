@@ -21,7 +21,7 @@ namespace RestaurantRating.ViewModels.RestaurantViewModels
 		[ObservableProperty]
 		Restaurant _restaurant = new();
 
-		public ObservableCollection<Visit> Visits { get; set; } = new();
+		public ObservableCollection<Consumption> Consumptions { get; set; } = new();
 
 		public DetailsRestaurantViewModel(LocalDBService db)
 		{
@@ -33,18 +33,18 @@ namespace RestaurantRating.ViewModels.RestaurantViewModels
 		{
 			Restaurant = await _db.GetRestaurantById(RestaurantId);
 
-			var visits = await _db.GetAllVisitsForRestaurant(RestaurantId);
-			Visits.Clear();
-			foreach (var visit in visits)
+			var consumptions = await _db.GetAllConsumptionsForRestaurant(RestaurantId);
+			Consumptions.Clear();
+			foreach (var consumption in consumptions)
 			{
-				Visits.Add(visit);
+				Consumptions.Add(consumption);
 			}
 		}
 
 		[RelayCommand]
-		public async Task AddVisitButton()
+		public async Task AddConsumptionButton()
 		{
-			await NavigateAddVisit(RestaurantId);
+			await NavigateAddConsumption(RestaurantId);
 		}
 	}
 }

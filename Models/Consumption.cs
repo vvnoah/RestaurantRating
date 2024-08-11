@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace RestaurantRating.Models
 {
-	[Table("visit")]
-	public class Visit
+	[Table("consumption")]
+	public class Consumption
 	{
 		[Column("id")]
 		[PrimaryKey, AutoIncrement]
@@ -24,6 +24,6 @@ namespace RestaurantRating.Models
 		public string Description { get; set; } = "";
 
 		[Column("rating")]
-		public double RestaurantRating { get; set; }
+		public double Rating { get; set; }
 	}
 }

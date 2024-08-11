@@ -1,5 +1,5 @@
-﻿using RestaurantRating.Views.RestaurantViews;
-using RestaurantRating.Views.VisitViews;
+﻿using RestaurantRating.Views.ConsumptionViews;
+using RestaurantRating.Views.RestaurantViews;
 
 namespace RestaurantRating
 {
@@ -18,7 +18,7 @@ namespace RestaurantRating
 			Routing.RegisterRoute("restaurant/details", typeof(DetailsRestaurantView));
 			Routing.RegisterRoute("restaurant/edit", typeof(EditRestaurantView));
 
-			Routing.RegisterRoute("restaurant/visit/add", typeof(AddVisitView));
+			Routing.RegisterRoute("restaurant/consumption/add", typeof(AddConsumptionView));
 		}
 	}
 }
