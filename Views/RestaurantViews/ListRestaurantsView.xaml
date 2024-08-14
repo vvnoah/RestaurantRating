@@ -30,7 +30,6 @@
                                     CommandParameter="{Binding Id}" />
                             </StackLayout.GestureRecognizers>
 
-                            <Label Text="{Binding Id}" FontSize="Small"/>
                             <Label Text="{Binding RestaurantName}" FontSize="Medium" TextColor="Gray"/>
                             <Label Text="{Binding RestaurantAddress}" FontSize="Medium" TextColor="Gray"/>
                         </StackLayout>

@@ -14,7 +14,6 @@
         <TableView Intent="Form"  Grid.Row="1">
             <TableRoot>
                 <TableSection>
-                    <TextCell Text="ID" Detail="{Binding Restaurant.Id}"/>
                     <EntryCell Text="{Binding Restaurant.RestaurantName}" Placeholder="Name"/>
                     <EntryCell Text="{Binding Restaurant.RestaurantAddress}" Placeholder="Address"/>
                 </TableSection>

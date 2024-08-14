@@ -37,6 +37,13 @@ namespace RestaurantRating
 
 		public async Task DeleteRestaurant(Restaurant restaurant)
 		{
+			var consumptions = await GetAllConsumptionsForRestaurant(restaurant.Id);
+
+			foreach (var consumption in consumptions)
+			{ 
+				await DeleteConsumption(consumption);		
+			}
+
 			await _connection.DeleteAsync(restaurant);
 		}
 

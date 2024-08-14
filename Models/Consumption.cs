@@ -20,6 +20,9 @@ namespace RestaurantRating.Models
 		[Column("date")]
 		public DateTime Date { get; set; }
 
+		[Column("title")]
+		public string Title { get; set; } = "";
+
 		[Column("description")]
 		public string Description { get; set; } = "";
 

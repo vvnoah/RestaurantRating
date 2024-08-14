@@ -22,7 +22,6 @@
             <TableView Intent="Data">
                 <TableRoot>
                     <TableSection>
-                        <TextCell Text="ID" Detail="{Binding Restaurant.Id}"/>
                         <TextCell Text="Name" Detail="{Binding Restaurant.RestaurantName}"/>
                         <TextCell Text="Address" Detail="{Binding Restaurant.RestaurantAddress}"/>
                     </TableSection>
@@ -40,8 +39,9 @@
                                             CommandParameter="{Binding Id}" />
                                     </StackLayout.GestureRecognizers>-->
 
-                                <Label Text="{Binding Date}" FontSize="Small" TextColor="Gray"/>
+                                <Label Text="{Binding Title}" FontSize="Medium" TextColor="Gray"/>
                                 <Label Text="{Binding Description}" FontSize="Medium" TextColor="Gray"/>
+                                <Label Text="{Binding Rating, StringFormat='Rating: {0}/10'}" FontSize="Medium" TextColor="Gray"/>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

@@ -20,6 +20,9 @@ namespace RestaurantRating.ViewModels.ConsumptionViewModels
 		[ObservableProperty]
 		public Consumption _consumption = new();
 
+		[ObservableProperty]
+		public double _rating;
+
 		public AddConsumptionViewModel(LocalDBService db)
 		{
 			_db = db;
@@ -30,6 +33,7 @@ namespace RestaurantRating.ViewModels.ConsumptionViewModels
 		{
 			Consumption.RestaurantId = RestaurantId;
 			Consumption.Date = DateTime.Now;
+			Consumption.Rating = Rating;
 			await _db.AddConsumption(Consumption);
 			await NavigateBack();
 		}

@@ -14,8 +14,19 @@
         <TableView Intent="Form" Grid.Row="0">
             <TableRoot>
                 <TableSection>
-                    <TextCell Text="ID" Detail="{Binding RestaurantId}"/>
+                    <EntryCell Text="{Binding Consumption.Title}" Placeholder="Title"/>
                     <EntryCell Text="{Binding Consumption.Description}" Placeholder="Description"/>
+                    <ViewCell>
+                        <Grid ColumnSpacing="10" Margin="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <Slider Grid.Column="0" x:Name="Slider" Value="{Binding Rating}" Maximum="10" Minimum="0" ValueChanged="Slider_ValueChanged"/>
+                            <Label VerticalOptions="Center" Grid.Column="1" Text="{Binding Source={x:Reference Slider}, Path=Value, StringFormat='{0}/10'}"/>
+                        </Grid>
+                    </ViewCell>
                 </TableSection>
             </TableRoot>
         </TableView>
