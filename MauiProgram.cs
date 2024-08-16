@@ -41,6 +41,12 @@ namespace RestaurantRating
             builder.Services.AddTransient<AddConsumptionViewModel>();
             builder.Services.AddTransient<AddConsumptionView>();
 
+            builder.Services.AddTransient<DetailsConsumptionViewModel>();
+            builder.Services.AddTransient<DetailsConsumptionView>();
+
+            builder.Services.AddTransient<EditConsumptionViewModel>();
+            builder.Services.AddTransient<EditConsumptionView>();
+
 #if DEBUG
             builder.Logging.AddDebug();
 #endif

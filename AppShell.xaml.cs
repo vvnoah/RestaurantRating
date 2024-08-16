@@ -19,6 +19,8 @@ namespace RestaurantRating
 			Routing.RegisterRoute("restaurant/edit", typeof(EditRestaurantView));
 
 			Routing.RegisterRoute("restaurant/consumption/add", typeof(AddConsumptionView));
+			Routing.RegisterRoute("restaurant/consumption/details", typeof(DetailsConsumptionView));
+			Routing.RegisterRoute("restaurant/consumption/edit", typeof(EditConsumptionView));
 		}
 	}
 }

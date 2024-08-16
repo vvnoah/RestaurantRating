@@ -70,6 +70,12 @@
 	  <MauiXaml Update="Views\ConsumptionViews\AddConsumptionView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\ConsumptionViews\DetailsConsumptionView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ConsumptionViews\EditConsumptionView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\RestaurantViews\AddRestaurantView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

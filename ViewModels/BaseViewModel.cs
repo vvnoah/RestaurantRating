@@ -57,5 +57,23 @@ namespace RestaurantRating.ViewModels
                 { "RestaurantId", restaurantId }
             });
         }
+
+        [RelayCommand]
+        public static async Task NavigateDetailsConsumption(int consumptionId)
+        {
+            await Shell.Current.GoToAsync("restaurant/consumption/details", true, new Dictionary<string, object>
+            {
+                { "ConsumptionId", consumptionId }
+            });
+        }
+
+        [RelayCommand]
+        public static async Task NavigateEditConsumption(Consumption consumption)
+        {
+            await Shell.Current.GoToAsync("restaurant/consumption/edit", true, new Dictionary<string, object>
+            {
+                { "Consumption", consumption }
+            });
+        }
     }
 }

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             
+             xmlns:models="clr-namespace:RestaurantRating.Models"
+             xmlns:viewmodels="clr-namespace:RestaurantRating.ViewModels.ConsumptionViewModels"
+             
+             x:DataType="viewmodels:EditConsumptionViewModel"
+             
+             x:Class="RestaurantRating.Views.ConsumptionViews.EditConsumptionView"
+             Title="EditConsumptionView">
+    <Grid Margin="10"  RowSpacing="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TableView Intent="Form" Grid.Row="1">
+            <TableRoot>
+                <TableSection>
+                    <EntryCell Text="{Binding Consumption.Title}" Placeholder="Title"/>
+                    <EntryCell Text="{Binding Consumption.Description}" Placeholder="Description"/>
+                    <ViewCell>
+                        <Grid ColumnSpacing="10" Margin="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <Slider Grid.Column="0" x:Name="Slider" Value="{Binding Consumption.Rating}" Maximum="10" Minimum="0" ValueChanged="Slider_ValueChanged"/>
+                            <Label VerticalOptions="Center" Grid.Column="1" Text="{Binding Source={x:Reference Slider}, Path=Value, StringFormat='{0}/10'}"/>
+                        </Grid>
+                    </ViewCell>
+                    <TextCell Text="Created On" Detail="{Binding Consumption.Date}" />
+                </TableSection>
+            </TableRoot>
+        </TableView>
+
+        <Grid VerticalOptions="End" Grid.Row="1" ColumnSpacing="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Text="Cancel" Command="{Binding NavigateBackCommand}"/>
+            <Button Grid.Column="1" Text="Delete" Command="{Binding DeleteButtonCommand}"/>
+            <Button Grid.Column="2" Text="Save" Command="{Binding SaveButtonCommand}"/>
+        </Grid>
+    </Grid>
+</ContentPage>
