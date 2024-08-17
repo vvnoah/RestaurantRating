@@ -47,6 +47,26 @@ namespace RestaurantRating
 			await _connection.DeleteAsync(restaurant);
 		}
 
+		public async Task UpdateRestaurantRating(int id)
+		{
+			var restaurant = await GetRestaurantById(id);
+			var consumptions = await GetAllConsumptionsForRestaurant(id);
+
+			if (consumptions != null && consumptions.Count > 0)
+			{
+				double average = consumptions.Average(x => x.Rating);
+				double rounded = Math.Round(average, 1);
+
+				restaurant.RestaurantRating = rounded;
+				await UpdateRestaurant(restaurant);
+			}
+			else
+			{
+				restaurant.RestaurantRating = 0;
+				await UpdateRestaurant(restaurant);
+			}			
+		}
+
 		public async Task<List<Consumption>> GetAllConsumptionsForRestaurant(int id)
 		{
 			return await _connection.Table<Consumption>().Where( x => x.RestaurantId == id).ToListAsync();
@@ -60,16 +80,19 @@ namespace RestaurantRating
 		public async Task AddConsumption(Consumption consumption)
 		{
 			await _connection.InsertAsync(consumption);
+			await UpdateRestaurantRating(consumption.RestaurantId);
 		}
 
 		public async Task UpdateConsumption(Consumption consumption)
 		{
 			await _connection.UpdateAsync(consumption);
+			await UpdateRestaurantRating(consumption.RestaurantId);
 		}
 
 		public async Task DeleteConsumption(Consumption consumption)
 		{
 			await _connection.DeleteAsync(consumption);
+			await UpdateRestaurantRating(consumption.RestaurantId);
 		}
 	}
 }

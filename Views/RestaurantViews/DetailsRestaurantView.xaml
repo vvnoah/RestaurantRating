@@ -24,6 +24,7 @@
                     <TableSection>
                         <TextCell Text="Name" Detail="{Binding Restaurant.RestaurantName}"/>
                         <TextCell Text="Address" Detail="{Binding Restaurant.RestaurantAddress}"/>
+                        <TextCell Text="Average Rating" Detail="{Binding Restaurant.RestaurantRating, StringFormat='{0}/10'}"/>
                     </TableSection>
                 </TableRoot>
             </TableView>

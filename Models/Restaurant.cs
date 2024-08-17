@@ -14,5 +14,8 @@ namespace RestaurantRating.Models
 
 		[Column("restaurant_address")]
 		public string RestaurantAddress { get; set; } = "";
+
+		[Column("restaurant_rating")]
+		public double RestaurantRating { get; set;}
 	}
 }

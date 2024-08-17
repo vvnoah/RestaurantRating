@@ -32,6 +32,7 @@
 
                             <Label Text="{Binding RestaurantName}" FontSize="Medium" TextColor="Gray"/>
                             <Label Text="{Binding RestaurantAddress}" FontSize="Medium" TextColor="Gray"/>
+                            <Label Text="{Binding RestaurantRating, StringFormat='Rating: {0}/10'}" />
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
