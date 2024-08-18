@@ -19,7 +19,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <ListView Grid.Row="0" ItemsSource="{Binding Restaurants}" HasUnevenRows="True">
+        <ListView Grid.Row="0" ItemsSource="{Binding Restaurants}" HasUnevenRows="True" SeparatorVisibility="None">
             <ListView.ItemTemplate>
                 <DataTemplate >
                     <ViewCell x:DataType="models:Restaurant">
@@ -30,15 +30,25 @@
                                     CommandParameter="{Binding Id}" />
                             </StackLayout.GestureRecognizers>
 
-                            <Label Text="{Binding RestaurantName}" FontSize="Medium" TextColor="Gray"/>
-                            <Label Text="{Binding RestaurantAddress}" FontSize="Medium" TextColor="Gray"/>
-                            <Label Text="{Binding RestaurantRating, StringFormat='Rating: {0}/10'}" />
+                            <Frame Padding="10">
+                                <VerticalStackLayout Spacing="5">
+                                    <FlexLayout JustifyContent="SpaceBetween">
+                                        <Label Text="{Binding RestaurantName}" FontSize="16" FontAttributes="Bold"/>
+                                        <Label Text="{Binding RestaurantRating, StringFormat='{0}/10'}"
+                                               FontSize="16" FontAttributes="Bold"/>
+                                    </FlexLayout>
+                                    <Label Text="{Binding RestaurantAddress}" />
+                                </VerticalStackLayout>
+                            </Frame>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
 
-        <Button VerticalOptions="End" Grid.Row="1" Text="Add Restaurant" Command="{Binding NavigateAddRestaurantCommand}"/>
+        <Button VerticalOptions="End" Grid.Row="1" Text="Add Restaurant" 
+                BackgroundColor="Blue" FontSize="16" FontAttributes="Bold"
+                Command="{Binding NavigateAddRestaurantCommand}"
+        />
     </Grid>
 </ContentPage>

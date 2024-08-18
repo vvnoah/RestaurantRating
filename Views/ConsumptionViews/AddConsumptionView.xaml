@@ -37,8 +37,13 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="0" Text="Cancel" Command="{Binding NavigateBackCommand}"/>
-            <Button Grid.Column="1" Text="Save" Command="{Binding SaveConsumptionButtonCommand}"/>
+            <Button Grid.Column="0" Text="Cancel" 
+                    BackgroundColor="Red" FontSize="16" FontAttributes="Bold"
+                    Command="{Binding NavigateBackCommand}"/>
+            
+            <Button Grid.Column="1" Text="Save" 
+                    BackgroundColor="Green" FontSize="16" FontAttributes="Bold"
+                    Command="{Binding SaveConsumptionButtonCommand}"/>
         </Grid>
     </Grid>
 </ContentPage>

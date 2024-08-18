@@ -18,18 +18,19 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <StackLayout>
-            <TableView Intent="Data">
-                <TableRoot>
-                    <TableSection>
-                        <TextCell Text="Name" Detail="{Binding Restaurant.RestaurantName}"/>
-                        <TextCell Text="Address" Detail="{Binding Restaurant.RestaurantAddress}"/>
-                        <TextCell Text="Average Rating" Detail="{Binding Restaurant.RestaurantRating, StringFormat='{0}/10'}"/>
-                    </TableSection>
-                </TableRoot>
-            </TableView>
+        <VerticalStackLayout Spacing="20">
+            <VerticalStackLayout Spacing="20" Padding="10">
+                <FlexLayout JustifyContent="SpaceBetween">
+                    <Label Text="{Binding Restaurant.RestaurantName}" TextColor="Black" FontSize="24" FontAttributes="Bold" />
+                    <Label Text="{Binding Restaurant.RestaurantRating, StringFormat='{0}/10'}" TextColor="Black" FontSize="24" FontAttributes="Bold" />
+                </FlexLayout>
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Address:" FontSize="16" FontAttributes="Bold" />
+                    <Label Text="{Binding Restaurant.RestaurantAddress}" FontSize="16" />
+                </VerticalStackLayout>
+            </VerticalStackLayout>
 
-            <ListView ItemsSource="{Binding Consumptions}" HasUnevenRows="True">
+            <ListView ItemsSource="{Binding Consumptions}" HasUnevenRows="True" SeparatorVisibility="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell x:DataType="models:Consumption">
@@ -40,15 +41,22 @@
                                         CommandParameter="{Binding Id}" />
                                 </StackLayout.GestureRecognizers>
 
-                                <Label Text="{Binding Title}" FontSize="Medium" TextColor="Gray"/>
-                                <Label Text="{Binding Description}" FontSize="Medium" TextColor="Gray"/>
-                                <Label Text="{Binding Rating, StringFormat='Rating: {0}/10'}" FontSize="Medium" TextColor="Gray"/>
+                                <Frame Padding="10">
+                                    <VerticalStackLayout Spacing="5">
+                                        <FlexLayout JustifyContent="SpaceBetween">
+                                            <Label Text="{Binding Title}" FontSize="16" FontAttributes="Bold"/>
+                                            <Label Text="{Binding Rating, StringFormat='{0}/10'}"
+                                                   FontSize="16" FontAttributes="Bold"/>
+                                        </FlexLayout>
+                                        <Label Text="{Binding Description}"  />
+                                    </VerticalStackLayout>
+                                </Frame>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </StackLayout>
+        </VerticalStackLayout>
 
         <Grid VerticalOptions="End" Grid.Row="1" ColumnSpacing="10" RowSpacing="10">
             <Grid.RowDefinitions>
@@ -60,10 +68,17 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="Add a Consumption" Command="{Binding AddConsumptionButtonCommand}"/>
+            <Button Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="Add a Consumption" 
+                    BackgroundColor="Blue" FontSize="16" FontAttributes="Bold"
+                    Command="{Binding AddConsumptionButtonCommand}"/>
 
-            <Button Grid.Row="1" Grid.Column="0" Text="Back" Command="{Binding NavigateBackCommand}"/>
-            <Button Grid.Row="1" Grid.Column="1" Text="Edit" Command="{Binding NavigateEditRestaurantCommand}" CommandParameter="{Binding Restaurant}"/>
+            <Button Grid.Row="1" Grid.Column="0" Text="Back" 
+                    BackgroundColor="Red" FontSize="16" FontAttributes="Bold"
+                    Command="{Binding NavigateBackCommand}"/>
+            
+            <Button Grid.Row="1" Grid.Column="1" Text="Edit" 
+                    BackgroundColor="DarkOrange" FontSize="16" FontAttributes="Bold"
+                    Command="{Binding NavigateEditRestaurantCommand}" CommandParameter="{Binding Restaurant}"/>
         </Grid>
     </Grid>
 </ContentPage>

@@ -27,9 +27,17 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="0" Text="Cancel" Command="{Binding NavigateBackCommand}"/>
-            <Button Grid.Column="1" Text="Delete" Command="{Binding DeleteRestaurantButtonCommand}"/>
-            <Button Grid.Column="2" Text="Save" Command="{Binding SaveRestaurantButtonCommand}"/>
+            <Button Grid.Column="0" Text="Cancel" 
+                    BackgroundColor="DarkOrange" FontSize="16" FontAttributes="Bold"
+                    Command="{Binding NavigateBackCommand}"/>
+            
+            <Button Grid.Column="1" Text="Delete" 
+                    BackgroundColor="Red" FontSize="16" FontAttributes="Bold"
+                    Command="{Binding DeleteRestaurantButtonCommand}"/>
+            
+            <Button Grid.Column="2" Text="Save" 
+                    BackgroundColor="Green" FontSize="16" FontAttributes="Bold"
+                    Command="{Binding SaveRestaurantButtonCommand}"/>
         </Grid>
     </Grid>
 </ContentPage>

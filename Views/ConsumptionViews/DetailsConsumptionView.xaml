@@ -42,8 +42,13 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Row="1" Grid.Column="0" Text="Back" Command="{Binding NavigateBackCommand}"/>
-            <Button Grid.Row="1" Grid.Column="1" Text="Edit" Command="{Binding NavigateEditConsumptionCommand}" CommandParameter="{Binding Consumption}"/>
+            <Button Grid.Row="1" Grid.Column="0" Text="Back"
+                    BackgroundColor="Red" FontSize="16" FontAttributes="Bold"
+                    Command="{Binding NavigateBackCommand}"/>
+            
+            <Button Grid.Row="1" Grid.Column="1" Text="Edit" 
+                    BackgroundColor="DarkOrange" FontSize="16" FontAttributes="Bold"
+                    Command="{Binding NavigateEditConsumptionCommand}" CommandParameter="{Binding Consumption}"/>
         </Grid>
     </Grid>
 </ContentPage>

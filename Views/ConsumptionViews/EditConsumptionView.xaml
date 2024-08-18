@@ -43,9 +43,17 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="0" Text="Cancel" Command="{Binding NavigateBackCommand}"/>
-            <Button Grid.Column="1" Text="Delete" Command="{Binding DeleteButtonCommand}"/>
-            <Button Grid.Column="2" Text="Save" Command="{Binding SaveButtonCommand}"/>
+            <Button Grid.Column="0" Text="Cancel" 
+                    BackgroundColor="DarkOrange" FontSize="16" FontAttributes="Bold"
+                    Command="{Binding NavigateBackCommand}"/>
+            
+            <Button Grid.Column="1" Text="Delete" 
+                    BackgroundColor="Red" FontSize="16" FontAttributes="Bold"
+                    Command="{Binding DeleteButtonCommand}"/>
+            
+            <Button Grid.Column="2" Text="Save" 
+                    BackgroundColor="Green" FontSize="16" FontAttributes="Bold"
+                    Command="{Binding SaveButtonCommand}"/>
         </Grid>
     </Grid>
 </ContentPage>
