@@ -11,14 +11,26 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <TableView Intent="Form"  Grid.Row="1">
+        <FlexLayout Grid.Row="0" Direction="Column" Margin="10">
+            <VerticalStackLayout Margin="0,0,0,20" >
+                <Label Text="Name" FontSize="16" FontAttributes="Bold"/>
+                <Entry Text="{Binding Restaurant.RestaurantName}" FontSize="16"/>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Margin="0,0,0,20">
+                <Label Text="Address" FontSize="16" FontAttributes="Bold"/>
+                <Entry Text="{Binding Restaurant.Address}" FontSize="16"/>
+            </VerticalStackLayout>
+        </FlexLayout>
+
+        <!--<TableView Intent="Form"  Grid.Row="1">
             <TableRoot>
                 <TableSection>
                     <EntryCell Text="{Binding Restaurant.RestaurantName}" Placeholder="Name"/>
                     <EntryCell Text="{Binding Restaurant.Address}" Placeholder="Address"/>
                 </TableSection>
             </TableRoot>
-        </TableView>
+        </TableView>-->
 
         <Grid VerticalOptions="End" Grid.Row="1" ColumnSpacing="10">
             <Grid.ColumnDefinitions>

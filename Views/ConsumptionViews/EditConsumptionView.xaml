@@ -8,33 +8,37 @@
              x:DataType="viewmodels:EditConsumptionViewModel"
              
              x:Class="RestaurantRating.Views.ConsumptionViews.EditConsumptionView"
-             Title="EditConsumptionView">
+             Title="Edit Consumption">
     <Grid Margin="10"  RowSpacing="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <TableView Intent="Form" Grid.Row="1">
-            <TableRoot>
-                <TableSection>
-                    <EntryCell Text="{Binding Consumption.Title}" Placeholder="Title"/>
-                    <EntryCell Text="{Binding Consumption.Description}" Placeholder="Description"/>
-                    <ViewCell>
-                        <Grid ColumnSpacing="10" Margin="10">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
+        <FlexLayout Grid.Row="0" Direction="Column" Margin="10">
+            <VerticalStackLayout Margin="0,0,0,20" >
+                <Label Text="Title" FontSize="16" FontAttributes="Bold"/>
+                <Entry Text="{Binding Consumption.Title}" FontSize="16"/>
+            </VerticalStackLayout>
 
-                            <Slider Grid.Column="0" x:Name="Slider" Value="{Binding Consumption.Rating}" Maximum="10" Minimum="0" ValueChanged="Slider_ValueChanged"/>
-                            <Label VerticalOptions="Center" Grid.Column="1" Text="{Binding Source={x:Reference Slider}, Path=Value, StringFormat='{0}/10'}"/>
-                        </Grid>
-                    </ViewCell>
-                    <TextCell Text="Created On" Detail="{Binding Consumption.Date}" />
-                </TableSection>
-            </TableRoot>
-        </TableView>
+            <VerticalStackLayout Margin="0,0,0,20">
+                <Label Text="Description" FontSize="16" FontAttributes="Bold"/>
+                <Entry Text="{Binding Consumption.Description}" FontSize="16"/>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Margin="0,0,0,20">
+                <Label Margin="0,0,0,10" Text="Rating" FontSize="16" FontAttributes="Bold"/>
+                <Grid ColumnSpacing="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <Slider Grid.Column="0" x:Name="Slider" Value="{Binding Consumption.Rating}" Maximum="10" Minimum="0" ValueChanged="Slider_ValueChanged"/>
+                    <Label FontAttributes="Bold" VerticalOptions="Center" Grid.Column="1" Text="{Binding Source={x:Reference Slider}, Path=Value, StringFormat='{0}/10'}"/>
+                </Grid>
+            </VerticalStackLayout>
+        </FlexLayout>
 
         <Grid VerticalOptions="End" Grid.Row="1" ColumnSpacing="10">
             <Grid.ColumnDefinitions>

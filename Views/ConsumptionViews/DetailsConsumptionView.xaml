@@ -21,16 +21,27 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <TableView Intent="Data">
-            <TableRoot>
-                <TableSection>
-                    <TextCell Text="Title" Detail="{Binding Consumption.Title}"/>
-                    <TextCell Text="Description" Detail="{Binding Consumption.Description}"/>
-                    <TextCell Text="Rating" Detail="{Binding Consumption.Rating}" />
-                    <TextCell Text="Created On" Detail="{Binding Consumption.Date}" />
-                </TableSection>
-            </TableRoot>
-        </TableView>
+        <FlexLayout Grid.Row="0" Direction="Column" Margin="10">
+            <VerticalStackLayout Margin="0,0,0,20" >
+                <Label Margin="0,0,0,10" Text="Title" FontSize="16" FontAttributes="Bold"/>
+                <Label Text="{Binding Consumption.Title}" FontSize="16"/>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Margin="0,0,0,20">
+                <Label Margin="0,0,0,10" Text="Description" FontSize="16" FontAttributes="Bold"/>
+                <Label Text="{Binding Consumption.Description}" FontSize="16"/>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Margin="0,0,0,20">
+                <Label Margin="0,0,0,10" Text="Rating" FontSize="16" FontAttributes="Bold"/>
+                <Label Text="{Binding Consumption.Rating, StringFormat='{0}/10'}" FontSize="16"/>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Margin="0,0,0,20">
+                <Label Margin="0,0,0,10" Text="Created On" FontSize="16" FontAttributes="Bold"/>
+                <Label Text="{Binding Consumption.Date}" FontSize="16"/>
+            </VerticalStackLayout>
+        </FlexLayout>
 
         <Grid VerticalOptions="End" Grid.Row="1" ColumnSpacing="10" RowSpacing="10">
             <Grid.RowDefinitions>
