@@ -37,7 +37,7 @@
                                         <Label Text="{Binding RestaurantRating, StringFormat='{0}/10'}"
                                                FontSize="16" FontAttributes="Bold"/>
                                     </FlexLayout>
-                                    <Label Text="{Binding RestaurantAddress}" />
+                                    <Label Text="{Binding Address}" />
                                 </VerticalStackLayout>
                             </Frame>
                         </StackLayout>

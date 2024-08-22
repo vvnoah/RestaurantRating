@@ -16,7 +16,7 @@
             <TableRoot>
                 <TableSection>
                     <EntryCell Text="{Binding Restaurant.RestaurantName}" Placeholder="Name"/>
-                    <EntryCell Text="{Binding Restaurant.RestaurantAddress}" Placeholder="Address"/>
+                    <EntryCell Text="{Binding Restaurant.Address}" Placeholder="Address"/>
                 </TableSection>
             </TableRoot>
         </TableView>

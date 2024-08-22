@@ -27,12 +27,14 @@ namespace RestaurantRating
 
 		public async Task AddRestaurant(Restaurant restaurant)
 		{
-			await _connection.InsertAsync(restaurant);
+			var restaurant1 = await CheckRestaurantAddress(restaurant);
+			await _connection.InsertAsync(restaurant1);
 		}
 
 		public async Task UpdateRestaurant(Restaurant restaurant)
 		{
-			await _connection.UpdateAsync(restaurant);
+			var restaurant1 = await CheckRestaurantAddress(restaurant);
+			await _connection.UpdateAsync(restaurant1);
 		}
 
 		public async Task DeleteRestaurant(Restaurant restaurant)
@@ -45,6 +47,30 @@ namespace RestaurantRating
 			}
 
 			await _connection.DeleteAsync(restaurant);
+		}
+
+		public async Task<Restaurant> CheckRestaurantAddress(Restaurant restaurant)
+		{
+			if(restaurant.Address == "")
+			{
+				return restaurant;
+			}
+
+			var locations = await Geocoding.GetLocationsAsync(restaurant.Address);
+			var location = locations?.FirstOrDefault();
+
+			if (location != null)
+			{
+				restaurant.AddressFound = true;
+				restaurant.Latitude = location.Latitude;
+				restaurant.Longitude = location.Longitude;
+			}
+			else
+			{
+				restaurant.AddressFound = false;
+			}
+
+			return restaurant;
 		}
 
 		public async Task UpdateRestaurantRating(int id)

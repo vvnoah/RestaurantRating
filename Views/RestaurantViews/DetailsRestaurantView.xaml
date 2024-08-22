@@ -26,7 +26,11 @@
                 </FlexLayout>
                 <VerticalStackLayout Spacing="10">
                     <Label Text="Address:" FontSize="16" FontAttributes="Bold" />
-                    <Label Text="{Binding Restaurant.RestaurantAddress}" FontSize="16" />
+                    <Label Text="{Binding Restaurant.Address}" FontSize="16" />
+                    <StackLayout IsVisible="{Binding Restaurant.AddressFound}">
+                        <Label Text="{Binding Restaurant.Latitude}" />
+                        <Label Text="{Binding Restaurant.Longitude}" />
+                    </StackLayout>
                 </VerticalStackLayout>
             </VerticalStackLayout>
 
