@@ -1,10 +1,13 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Microsoft.Maui.Controls.Maps;
+using Microsoft.Maui.Maps;
 using RestaurantRating.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -38,7 +41,7 @@ namespace RestaurantRating.ViewModels.RestaurantViewModels
 			foreach (var consumption in consumptions)
 			{
 				Consumptions.Add(consumption);
-			}
+			}			
 		}
 
 		[RelayCommand]

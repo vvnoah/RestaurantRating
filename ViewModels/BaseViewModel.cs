@@ -75,5 +75,29 @@ namespace RestaurantRating.ViewModels
                 { "Consumption", consumption }
             });
         }
-    }
+
+        [RelayCommand]
+		public static async Task OpenMapAsync(Restaurant restaurant)
+		{
+			// Construct the URI based on the platform
+			string uri;
+
+			if (DeviceInfo.Platform == DevicePlatform.iOS)
+			{
+				// Use Apple Maps URL scheme for iOS
+				uri = $"http://maps.apple.com/?ll={restaurant.Latitude},{restaurant.Longitude}";
+			}
+			else
+			{
+				// Use Google Maps URL scheme for Android
+				uri = $"geo:{restaurant.Latitude},{restaurant.Longitude}?q={restaurant.Latitude},{restaurant.Longitude}";
+			}
+
+			// Create a URI object
+			var mapUri = new Uri(uri);
+
+			// Open the URI using the Launcher
+			await Launcher.OpenAsync(mapUri);
+		}
+	}
 }

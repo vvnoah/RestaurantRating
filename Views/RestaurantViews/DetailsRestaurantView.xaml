@@ -26,11 +26,12 @@
                 </FlexLayout>
                 <VerticalStackLayout Spacing="10">
                     <Label Text="Address:" FontSize="16" FontAttributes="Bold" />
-                    <Label Text="{Binding Restaurant.Address}" FontSize="16" />
-                    <StackLayout IsVisible="{Binding Restaurant.AddressFound}">
-                        <Label Text="{Binding Restaurant.Latitude}" />
-                        <Label Text="{Binding Restaurant.Longitude}" />
-                    </StackLayout>
+                    <FlexLayout JustifyContent="SpaceBetween" AlignItems="Center">
+                        <Label Text="{Binding Restaurant.Address}" FontSize="16" />
+                        <Button Text="Map" BackgroundColor="Blue" FontAttributes="Bold" 
+                                IsVisible="{Binding Restaurant.AddressFound}"
+                                Command="{Binding OpenMapCommand}" CommandParameter="{Binding Restaurant}" />
+                    </FlexLayout>
                 </VerticalStackLayout>
             </VerticalStackLayout>
 
