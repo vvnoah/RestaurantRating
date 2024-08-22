@@ -22,11 +22,6 @@
             </VerticalStackLayout>
 
             <VerticalStackLayout Margin="0,0,0,20">
-                <Label Text="Description" FontSize="16" FontAttributes="Bold"/>
-                <Entry Text="{Binding Consumption.Description}" FontSize="16"/>
-            </VerticalStackLayout>
-
-            <VerticalStackLayout Margin="0,0,0,20">
                 <Label Margin="0,0,0,10" Text="Rating" FontSize="16" FontAttributes="Bold"/>
                 <Grid ColumnSpacing="10">
                     <Grid.ColumnDefinitions>
@@ -38,6 +33,11 @@
                     <Label FontAttributes="Bold" VerticalOptions="Center" Grid.Column="1" Text="{Binding Source={x:Reference Slider}, Path=Value, StringFormat='{0}/10'}"/>
                 </Grid>
             </VerticalStackLayout>
+
+            <VerticalStackLayout Margin="0,0,0,20">
+                <Label Text="Description" FontSize="16" FontAttributes="Bold"/>
+                <Editor Text="{Binding Consumption.Description}" FontSize="16" AutoSize="TextChanges" VerticalOptions="StartAndExpand" />
+            </VerticalStackLayout>            
         </FlexLayout>
 
         <Grid VerticalOptions="End" Grid.Row="1" ColumnSpacing="10">

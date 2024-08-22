@@ -28,8 +28,8 @@
             </VerticalStackLayout>
 
             <VerticalStackLayout Margin="0,0,0,20">
-                <Label Margin="0,0,0,10" Text="Description" FontSize="16" FontAttributes="Bold"/>
-                <Label Text="{Binding Consumption.Description}" FontSize="16"/>
+                <Label Margin="0,0,0,10" Text="Created On" FontSize="16" FontAttributes="Bold"/>
+                <Label Text="{Binding Consumption.Date}" FontSize="16"/>
             </VerticalStackLayout>
 
             <VerticalStackLayout Margin="0,0,0,20">
@@ -38,8 +38,8 @@
             </VerticalStackLayout>
 
             <VerticalStackLayout Margin="0,0,0,20">
-                <Label Margin="0,0,0,10" Text="Created On" FontSize="16" FontAttributes="Bold"/>
-                <Label Text="{Binding Consumption.Date}" FontSize="16"/>
+                <Label Margin="0,0,0,10" Text="Description" FontSize="16" FontAttributes="Bold"/>
+                <Label Text="{Binding Consumption.Description}" FontSize="16"/>
             </VerticalStackLayout>
         </FlexLayout>
 
