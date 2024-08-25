@@ -1,5 +1,8 @@
 ﻿using SQLite;
 using RestaurantRating.Models;
+using System.Diagnostics;
+using Microsoft.Maui.Devices.Sensors;
+using Microsoft.Maui.Storage;
 
 namespace RestaurantRating
 {
@@ -56,20 +59,28 @@ namespace RestaurantRating
 				return restaurant;
 			}
 
-			var locations = await Geocoding.GetLocationsAsync(restaurant.Address);
-			var location = locations?.FirstOrDefault();
+			try
+			{
+				var locations = await Geocoding.GetLocationsAsync(restaurant.Address);
+				var location = locations?.FirstOrDefault();
 
-			if (location != null)
-			{
-				restaurant.AddressFound = true;
-				restaurant.Latitude = location.Latitude;
-				restaurant.Longitude = location.Longitude;
+				if (location != null)
+				{
+					restaurant.AddressFound = true;
+					restaurant.Latitude = location.Latitude;
+					restaurant.Longitude = location.Longitude;
+				}
+				else
+				{
+					restaurant.AddressFound = false;
+				}
 			}
-			else
+			catch(Exception ex)
 			{
+				Debug.WriteLine(ex);
 				restaurant.AddressFound = false;
 			}
-
+			
 			return restaurant;
 		}
 
